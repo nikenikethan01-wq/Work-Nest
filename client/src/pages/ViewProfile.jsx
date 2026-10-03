@@ -20,10 +20,12 @@ export default function ViewProfile() {
     async function getProfile() {
       try {
         const endpoint = isFreelancerProfile
-          ? `/api/client/freelancers/${userId}`
-          : `/api/freelancer/clients/${userId}`
+          ? `${import.meta.env.VITE_API_URL}/api/client/freelancers/${userId}`
+          : `${import.meta.env.VITE_API_URL}/api/freelancer/clients/${userId}`
 
-        const res = await fetch(endpoint)
+        const res = await fetch(endpoint, {
+          credentials: 'include',
+        })
         const data = await res.json()
 
         if (!res.ok) {

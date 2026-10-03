@@ -24,7 +24,10 @@ export default function Conversation({ isMobile }) {
     const getMessages = async () => {
       try {
         const queryUserName = await fetch(
-          `/api/chat/conversations/${conversationId}`,
+          `${import.meta.env.VITE_API_URL}/api/chat/conversations/${conversationId}`,
+          {
+            credentials: 'include',
+          },
         )
 
         const name = await queryUserName.json()
@@ -43,7 +46,10 @@ export default function Conversation({ isMobile }) {
         }
 
         const queryDB = await fetch(
-          `/api/chat/conversations/${conversationId}/messages`,
+          `${import.meta.env.VITE_API_URL}/api/chat/conversations/${conversationId}/messages`,
+          {
+            credentials: 'include',
+          },
         )
 
         const data = await queryDB.json()

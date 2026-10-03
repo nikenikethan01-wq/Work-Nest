@@ -19,7 +19,12 @@ export default function FreelancerJobs() {
   React.useEffect(() => {
     async function getJobs() {
       try {
-        const res = await fetch('/api/freelancer/jobs')
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/freelancer/jobs`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const data = await res.json()
 

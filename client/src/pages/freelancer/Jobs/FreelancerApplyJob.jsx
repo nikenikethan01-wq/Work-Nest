@@ -31,7 +31,12 @@ export default function FreelancerApplyJob() {
   React.useEffect(() => {
     async function getJob() {
       try {
-        const res = await fetch(`/api/freelancer/jobs/${id}`)
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/freelancer/jobs/${id}`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const data = await res.json()
 
@@ -80,17 +85,21 @@ export default function FreelancerApplyJob() {
     setSubmitting(true)
 
     try {
-      const res = await fetch(`/api/freelancer/jobs/${id}/application`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/freelancer/jobs/${id}/application`,
+        {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            proposal: formData.proposal,
+            proposedPrice,
+            status: 'pending',
+          }),
         },
-        body: JSON.stringify({
-          proposal: formData.proposal,
-          proposedPrice,
-          status: 'pending',
-        }),
-      })
+      )
 
       const data = await res.json()
 

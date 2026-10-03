@@ -12,7 +12,12 @@ export default function ClientDashboard() {
   React.useEffect(() => {
     async function getDashboard() {
       try {
-        const res = await fetch('/api/client/dashboard')
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/client/dashboard`,
+          {
+            credentials: 'include',
+          },
+        )
         const data = await res.json()
 
         if (!res.ok) {

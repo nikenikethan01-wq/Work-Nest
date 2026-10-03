@@ -19,7 +19,12 @@ export default function Projects() {
   React.useEffect(() => {
     async function getProjects() {
       try {
-        const res = await fetch('/api/client/projects')
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/client/projects`,
+          {
+            credentials: 'include',
+          },
+        )
         const data = await res.json()
 
         if (!res.ok) {
@@ -43,9 +48,13 @@ export default function Projects() {
     setError('')
 
     try {
-      const res = await fetch(`/api/client/project/${projectId}/status`, {
-        method: 'PATCH',
-      })
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/client/project/${projectId}/status`,
+        {
+          method: 'PATCH',
+          credentials: 'include',
+        },
+      )
 
       if (!res.ok) {
         const data = await res.json()

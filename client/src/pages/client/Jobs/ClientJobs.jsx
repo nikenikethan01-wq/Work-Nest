@@ -14,7 +14,12 @@ export default function ClientJobs() {
   React.useEffect(() => {
     const getJobs = async () => {
       try {
-        const res = await fetch('/api/client/jobs/my')
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/client/jobs/my`,
+          {
+            credentials: 'include',
+          },
+        )
         const data = await res.json()
 
         if (!res.ok) {

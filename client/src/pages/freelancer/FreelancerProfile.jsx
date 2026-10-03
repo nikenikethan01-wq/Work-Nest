@@ -24,7 +24,12 @@ export default function FreelancerProfile() {
   React.useEffect(() => {
     async function getProfile() {
       try {
-        const res = await fetch('/api/freelancer/profile')
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/freelancer/profile`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const data = await res.json()
 
@@ -45,10 +50,13 @@ export default function FreelancerProfile() {
 
   async function handleLogout() {
     try {
-      const res = await fetch('/api/auth/logout', {
-        method: 'POST',
-      })
-
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/logout`,
+        {
+          method: 'POST',
+          credentials: 'include',
+        },
+      )
       if (!res.ok) {
         throw new Error('Failed to logout.')
       }

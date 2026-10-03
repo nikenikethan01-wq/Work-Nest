@@ -22,7 +22,12 @@ export default function ClientProjectDetails() {
   React.useEffect(() => {
     async function getProjectDetails() {
       try {
-        const res = await fetch(`/api/client/projects/${projectId}`)
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/client/projects/${projectId}`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const data = await res.json()
 
@@ -47,9 +52,13 @@ export default function ClientProjectDetails() {
     setError('')
 
     try {
-      const res = await fetch(`/api/client/project/${projectId}/status`, {
-        method: 'PATCH',
-      })
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/client/project/${projectId}/status`,
+        {
+          method: 'PATCH',
+          credentials: 'include',
+        },
+      )
 
       if (!res.ok) {
         const data = await res.json()

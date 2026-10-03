@@ -24,7 +24,12 @@ export default function ClientUpdateJob() {
     async function getJob() {
       try {
         console.log(jobId)
-        const res = await fetch(`/api/client/jobs/${jobId}`)
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/client/jobs/${jobId}`,
+          {
+            credentials: 'include',
+          },
+        )
         const data = await res.json()
 
         if (!res.ok) {
@@ -69,13 +74,17 @@ export default function ClientUpdateJob() {
     try {
       const cleanedData = validateCreateJobData(formData)
 
-      const res = await fetch(`/api/client/jobs/${jobId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/client/jobs/${jobId}`,
+        {
+          method: 'PUT',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(cleanedData),
         },
-        body: JSON.stringify(cleanedData),
-      })
+      )
 
       const data = await res.json()
 

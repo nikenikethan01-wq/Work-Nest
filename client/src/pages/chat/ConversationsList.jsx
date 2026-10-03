@@ -43,7 +43,12 @@ export default function ConversationList() {
   React.useEffect(() => {
     const getMessageList = async () => {
       try {
-        const queryDB = await fetch('/api/chat/conversations')
+        const queryDB = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/chat/conversations`,
+          {
+            credentials: 'include',
+          },
+        )
         const data = await queryDB.json()
 
         if (!queryDB.ok) {

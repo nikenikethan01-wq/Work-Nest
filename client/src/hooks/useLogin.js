@@ -18,14 +18,17 @@ export default function useLogin() {
       if (!email || typeof email !== 'string' || !password) {
         throw new Error('Field is empty or invalid format.')
       }
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-type': 'application/json',
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
         },
-        body: JSON.stringify({ email, password }),
-      })
+      )
       const data = await res.json()
       if (!res.ok) {
         setError(data.error)

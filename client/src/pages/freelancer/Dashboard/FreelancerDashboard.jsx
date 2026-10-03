@@ -15,7 +15,12 @@ export default function FreelancerDashboard() {
   React.useEffect(() => {
     async function getDashboard() {
       try {
-        const res = await fetch('/api/freelancer/dashboard')
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/freelancer/dashboard`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const data = await res.json()
 

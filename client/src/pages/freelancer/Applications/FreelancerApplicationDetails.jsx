@@ -24,7 +24,12 @@ export default function FreelancerApplicationDetails() {
   React.useEffect(() => {
     const getApplication = async () => {
       try {
-        const res = await fetch(`/api/freelancer/applications/${jobId}`)
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/freelancer/applications/${jobId}`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const data = await res.json()
 

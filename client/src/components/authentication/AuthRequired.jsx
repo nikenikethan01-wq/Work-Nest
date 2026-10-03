@@ -10,7 +10,9 @@ export default function AuthRequired() {
   React.useEffect(() => {
     const getMe = async () => {
       try {
-        const res = await fetch('/api/auth/me')
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
+          credentials: 'include',
+        })
         const data = await res.json()
 
         if (!res.ok) {

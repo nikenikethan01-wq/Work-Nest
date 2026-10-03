@@ -19,7 +19,12 @@ export default function ClientApplications() {
   React.useEffect(() => {
     async function getApplications() {
       try {
-        const res = await fetch('/api/client/applications')
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/client/applications`,
+          {
+            credentials: 'include',
+          },
+        )
         const data = await res.json()
 
         if (!res.ok) {
@@ -45,12 +50,12 @@ export default function ClientApplications() {
 
     try {
       const res = await fetch(
-        `/api/client/applications/${jobId}/${freelancerId}/accept`,
+        `${import.meta.env.VITE_API_URL}/api/client/applications/${jobId}/${freelancerId}/accept`,
         {
           method: 'PATCH',
+          credentials: 'include',
         },
       )
-
       if (!res.ok) {
         const data = await res.json()
         setError(data.error)
@@ -82,9 +87,10 @@ export default function ClientApplications() {
 
     try {
       const res = await fetch(
-        `/api/client/applications/${jobId}/${freelancerId}/reject`,
+        `${import.meta.env.VITE_API_URL}/api/client/applications/${jobId}/${freelancerId}/reject`,
         {
           method: 'PATCH',
+          credentials: 'include',
         },
       )
 

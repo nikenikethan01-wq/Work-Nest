@@ -27,7 +27,12 @@ export default function FreelancerProjectDetails() {
   React.useEffect(() => {
     async function getProjectDetails() {
       try {
-        const res = await fetch(`/api/freelancer/projects/${projectId}`)
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/freelancer/projects/${projectId}`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const data = await res.json()
 
@@ -55,10 +60,13 @@ export default function FreelancerProjectDetails() {
     setError('')
 
     try {
-      const res = await fetch(`/api/freelancer/project/${projectId}/submit`, {
-        method: 'PATCH',
-      })
-
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/freelancer/project/${projectId}/submit`,
+        {
+          method: 'PATCH',
+          credentials: 'include',
+        },
+      )
       const data = await res.json()
 
       if (!res.ok) {

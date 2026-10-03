@@ -25,7 +25,12 @@ export default function ClientJobDetails() {
   React.useEffect(() => {
     async function getJobDetails() {
       try {
-        const jobsRes = await fetch(`/api/client/jobs/${jobId}`)
+        const jobsRes = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/client/jobs/${jobId}`,
+          {
+            credentials: 'include',
+          },
+        )
 
         const jobsData = await jobsRes.json()
 
@@ -35,9 +40,11 @@ export default function ClientJobDetails() {
         }
 
         const applicationsRes = await fetch(
-          `/api/client/jobs/${jobId}/applications`,
+          `${import.meta.env.VITE_API_URL}/api/client/jobs/${jobId}/applications`,
+          {
+            credentials: 'include',
+          },
         )
-
         const applicationsData = await applicationsRes.json()
 
         if (!applicationsRes.ok) {
@@ -65,7 +72,7 @@ export default function ClientJobDetails() {
 
     try {
       const res = await fetch(
-        `/api/client/applications/${jobId}/${freelancerId}/accept`,
+        `${import.meta.env.VITE_API_URL}/api/client/applications/${jobId}/${freelancerId}/accept`,
         {
           method: 'PATCH',
           credentials: 'include',
@@ -104,7 +111,7 @@ export default function ClientJobDetails() {
 
     try {
       const res = await fetch(
-        `/api/client/applications/${jobId}/${freelancerId}/reject`,
+        `${import.meta.env.VITE_API_URL}/api/client/applications/${jobId}/${freelancerId}/reject`,
         {
           method: 'PATCH',
           credentials: 'include',
@@ -141,9 +148,13 @@ export default function ClientJobDetails() {
     }
 
     try {
-      const res = await fetch(`/api/client/jobs/${jobId}`, {
-        method: 'DELETE',
-      })
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/client/jobs/${jobId}`,
+        {
+          method: 'DELETE',
+          credentials: 'include',
+        },
+      )
 
       const data = await res.json()
 
