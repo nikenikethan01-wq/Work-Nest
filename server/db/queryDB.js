@@ -1,13 +1,11 @@
 import pool from './db.js'
 
 async function queryDB() {
-  const result = await pool.query(`
-        SELECT 
-            *
-        FROM users;
-    `)
+  await pool.query(`
+            ALTER TABLE projects 
+            ADD COLUMN updated_on TIMESTAMPTZ;
 
-  console.table(result.rows)
+        `)
 }
 
 queryDB()

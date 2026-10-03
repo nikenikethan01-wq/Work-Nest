@@ -1,0 +1,428 @@
+/* ========================================
+   Chat Layout — Mobile First
+======================================== */
+
+.chat-layout {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.chat-panel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.chat-main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+/* -------------------------------------------------------------------------------- */
+/* ========================================
+   Conversation List
+======================================== */
+
+.conversation-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.conversation-list-header {
+  flex-shrink: 0;
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.conversation-list-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.conversation-items {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+/* ========================================
+   Conversation List EMPTY
+======================================== */
+.conversation-empty-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.conversation-empty-list p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.conversation-empty-list button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #1b6cff;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.conversation-empty-list button:hover {
+  background-color: #1557c0;
+}
+/* ========================================
+   Conversation Item
+======================================== */
+
+.conversation-item {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.conversation-item:hover {
+  background-color: #f8fafc;
+}
+
+.conversation-item.active {
+  background-color: #f1f5f9;
+}
+
+/* ========================================
+   Conversation User
+======================================== */
+
+.conversation-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.conversation-status {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.conversation-status.online {
+  background-color: #22c55e;
+}
+
+.conversation-status.offline {
+  background-color: #cbd5e1;
+}
+
+.conversation-user-name {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+   Last Message
+======================================== */
+
+.conversation-last-message {
+  margin: 6px 0 0 16px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #64748b;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* ------------------------------------------------------------------------- */
+/* ========================================
+   Conversation Window
+======================================== */
+
+.conversation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* ========================================
+   Conversation Header
+======================================== */
+
+.conversation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
+}
+
+.conversation-header-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.conversation-header-user .conversation-status {
+  width: 9px;
+  height: 9px;
+}
+
+.conversation-header-user > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.conversation-header-name {
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.conversation-header-status {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* ========================================
+   Mobile Back Button
+======================================== */
+
+.conversation-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #475569;
+  font-size: 28px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.conversation-back:hover {
+  color: #0f172a;
+}
+
+/* ========================================
+   Messages
+======================================== */
+
+.conversation-messages {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f8fafc;
+}
+
+.message-row {
+  display: flex;
+  width: 100%;
+}
+
+.message-sent {
+  justify-content: flex-end;
+}
+
+.message-received {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: min(75%, 500px);
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.message-sent .message-content {
+  background-color: #1b6cff;
+  border-bottom-right-radius: 4px;
+}
+
+.message-received .message-content {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 4px;
+}
+
+.message-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.message-sent .message-text {
+  color: #ffffff;
+}
+
+.message-received .message-text {
+  color: #0f172a;
+}
+
+.message-time {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.message-sent .message-time {
+  color: #dbeafe;
+  text-align: right;
+}
+
+.message-received .message-time {
+  color: #94a3b8;
+  text-align: right;
+}
+/* ----------------------------------- */
+.conversation-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+}
+
+.conversation-input {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.conversation-input::placeholder {
+  color: #94a3b8;
+}
+
+.conversation-input:focus {
+  border-color: #1b6cff;
+}
+
+.conversation-send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: #1b6cff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.conversation-send:hover {
+  background-color: #1557c0;
+}
+/* --------------------------------------------------------------------- */
+/* ========================================
+   CHAT EMPTY
+======================================== */
+
+.chat-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-empty-message {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+/* ========================================
+   Desktop
+======================================== */
+
+@media (min-width: 768px) {
+  .chat-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    height: calc(100vh - 64px);
+  }
+
+  .chat-panel {
+    width: auto;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .chat-main {
+    width: auto;
+  }
+
+  .conversation-header {
+    padding: 18px 24px;
+  }
+
+  .conversation-messages {
+    padding: 24px;
+  }
+
+  .message-content {
+    max-width: min(65%, 550px);
+  }
+
+  .conversation-back {
+    display: none;
+  }
+}

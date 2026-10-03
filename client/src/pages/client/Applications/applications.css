@@ -1,0 +1,401 @@
+/* =========================
+   APPLICATIONS PAGE
+========================= */
+
+.applications-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.applications-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.applications-page-header .back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.applications-page-header .back-link:hover {
+  color: #2563eb;
+}
+
+.applications-page-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.applications-page-header p {
+  margin: 0.4rem 0 1rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* =========================
+   APPLICATION LIST
+========================= */
+
+.applications-page-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.application-page-card {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.application-freelancer-link {
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.application-freelancer-link:hover {
+  color: #1b6cff;
+}
+/* =========================
+   APPLICATION HEADER
+========================= */
+
+.application-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.application-page-label {
+  display: block;
+  color: #2563eb;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.application-job-link {
+  display: block;
+  margin-top: 0.25rem;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.application-job-link:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   APPLICATION STATUS
+========================= */
+
+.application-status {
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.application-status.pending {
+  background-color: #fff7ed;
+  color: #ea580c;
+}
+
+.application-status.accepted {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.application-status.rejected {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+/* =========================
+   APPLICATION META
+========================= */
+
+.application-page-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  justify-items: center;
+  text-align: center;
+}
+
+.application-page-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.application-page-meta > div > span {
+  color: #64748b;
+  font-size: 0.68rem;
+}
+
+.application-page-meta > div > strong {
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.application-freelancer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.application-freelancer strong {
+  min-width: 0;
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.application-freelancer-chat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.application-freelancer-chat:hover {
+  color: #2563eb;
+}
+
+.application-freelancer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================
+   PROPOSAL
+========================= */
+
+.application-page-proposal {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.application-page-proposal p {
+  margin: 0.4rem 0 0;
+  color: #334155;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================
+   ACCEPT / REJECT
+========================= */
+
+.application-page-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.application-page-actions button {
+  flex: 1;
+  min-height: 38px;
+  padding: 0 1rem;
+  border-radius: 9px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.application-page-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.application-reject-btn {
+  border: 1px solid #fecaca;
+  background-color: #ffffff;
+  color: #dc2626;
+}
+
+.application-reject-btn:hover:not(:disabled) {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.application-accept-btn {
+  border: 1px solid #2563eb;
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.application-accept-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* =========================
+   ACTION ERROR
+========================= */
+
+.applications-action-error {
+  margin: 0 0 0.8rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  background-color: #fef2f2;
+  color: #dc2626;
+  font-size: 0.75rem;
+}
+
+/* =========================
+   EMPTY / ERROR / LOADING
+========================= */
+
+.applications-message {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.applications-error {
+  color: #dc2626;
+}
+
+.applications-page-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.applications-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.8rem;
+  border-radius: 50%;
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.applications-page-empty h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.applications-page-empty p {
+  max-width: 360px;
+  margin: 0.4rem 0 1rem;
+  color: #64748b;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.applications-empty-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 1rem;
+  border-radius: 9px;
+  background-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.applications-empty-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+  .applications-page {
+    padding: 2rem;
+  }
+
+  .applications-page-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .applications-page-header p {
+    font-size: 0.9rem;
+  }
+
+  .application-page-card {
+    padding: 1.2rem;
+  }
+
+  .application-page-meta {
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: start;
+    text-align: start;
+  }
+
+  .application-page-actions {
+    justify-content: flex-end;
+  }
+
+  .application-page-actions button {
+    flex: 0 0 auto;
+    min-width: 100px;
+  }
+}

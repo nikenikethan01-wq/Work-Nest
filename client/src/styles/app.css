@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  /* Primary Text Color ("Work") */
+  --color-brand-primary: #0f172a;
+
+  /* Accent Color ("Nest" & Logo SVG) */
+  --color-brand-accent: #1b6cff;
+
+  /* Muted Tagline / Subtitle Text */
+  --color-brand-muted: #64748b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+/* =========================================================
+   1. DEFAULT / MOBILE STYLES (Applies to all screens 0px+)
+   ========================================================= */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  background-color: #ffffff;
+  /* Fills available vertical space inside #root  */
+  flex: 1;
+  display: flex;
+}
+
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  width: calc(100% - 2rem);
+  max-width: 380px;
+  padding: 0.85rem 1.25rem;
+
+  /* Semi-transparent dark red background */
+  background-color: rgba(220, 38, 38, 0.85); /* #dc2626 with 85% opacity */
+  color: #ffffff;
+
+  /* Adds a subtle frosted glass effect behind the toast */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  /* Crisp semi-transparent border to define edges */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.3);
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-sizing: border-box;
+  z-index: 1000;
+
+  /* Smooth Pop-in Transition */
+  transition:
+    bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Active State */
+.toast-notification.show {
+  bottom: 1.5rem;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toast-message {
+  flex: 1;
+  line-height: 1.3;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  line-height: 1;
+  transition: color 0.15s ease;
+}
+
+.toast-close:hover {
+  color: #ffffff;
+}
+
+/* =========================================================
+   2. TABLET STYLES (Applies to screens 768px and up)
+   ========================================================= */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .job-card {
+    flex-direction: row; /* Side-by-side on tablet */
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* =========================================================
+   3. DESKTOP STYLES (Applies to screens 1024px and up)
+   ========================================================= */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .nav-menu {
+    display: flex; /* Show full horizontal nav bar */
+    gap: 1.5rem;
+  }
+}

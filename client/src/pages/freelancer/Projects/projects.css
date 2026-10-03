@@ -1,0 +1,353 @@
+/* =========================================================
+   PROJECTS PAGE
+   ========================================================= */
+
+.projects-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 6rem;
+  box-sizing: border-box;
+  background-color: #f8fafc;
+  flex: 1;
+}
+
+/* =========================================================
+   BACK TO DASHBOARD
+   ========================================================= */
+
+.back-dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  margin-bottom: 1.25rem;
+
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: color 0.15s ease;
+}
+
+.back-dashboard-btn:hover {
+  color: #2563eb;
+}
+
+.back-dashboard-btn svg {
+  font-size: 1rem;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.projects-header {
+  margin-bottom: 1.75rem;
+}
+
+.projects-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.65rem;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.projects-header p {
+  margin: 0.5rem 0 0;
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   PROJECT LIST
+   ========================================================= */
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.project-card {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+  border: 1px solid #e8edf3;
+  border-radius: 16px;
+
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-card-header h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  flex-shrink: 0;
+
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.project-status.in_progress {
+  color: #d97706;
+}
+
+.project-status.submitted {
+  color: #2563eb;
+}
+
+.project-status.completed {
+  color: #16a34a;
+}
+
+/* =========================================================
+   PROJECT INFO
+   ========================================================= */
+
+.project-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+
+  border-top: 1px solid #eef2f6;
+}
+
+.project-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.project-info span {
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+.project-info strong {
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+.project-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.submit-project-btn,
+.view-project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #2563eb;
+  border-radius: 7px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.submit-project-btn:hover,
+.view-project-btn:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.submit-project-btn:disabled {
+  background-color: #93c5fd;
+  border-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.view-project-btn svg {
+  font-size: 0.7rem;
+}
+/* =========================================================
+   COMPLETED DATE
+   ========================================================= */
+
+.project-completed {
+  margin-top: 0.75rem;
+
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.projects-message {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+
+  color: #64748b;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.projects-error {
+  margin: 0 0 1rem;
+
+  color: #dc2626;
+  font-size: 0.8rem;
+}
+
+/* =========================
+   EMPTY / ERROR / LOADING
+========================= */
+
+.projects-message {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.projects-error {
+  color: #dc2626;
+}
+
+.projects-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.projects-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.8rem;
+  border-radius: 50%;
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.projects-empty h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.projects-empty p {
+  max-width: 360px;
+  margin: 0.4rem 0 1rem;
+  color: #64748b;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.projects-empty-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 1rem;
+  border-radius: 9px;
+  background-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.projects-empty-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .projects-page {
+    padding: 2rem 1.5rem 6rem;
+  }
+
+  .projects-header {
+    margin-bottom: 2rem;
+  }
+
+  .projects-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .projects-header p {
+    margin-top: 0.55rem;
+    font-size: 0.9rem;
+  }
+
+  .project-card {
+    padding: 1.1rem 1.25rem;
+  }
+}

@@ -1,0 +1,341 @@
+/* =========================================================
+   FILTER PANEL
+   ========================================================= */
+
+.jobs-filters {
+  width: 100%;
+  min-width: 0;
+
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+  border: 1px solid #e8edf3;
+  border-radius: 16px;
+
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.filter-section {
+  width: 100%;
+  min-width: 0;
+}
+
+.filter-section + .filter-section {
+  margin-top: 1rem;
+}
+
+.filter-label {
+  display: block;
+
+  margin-bottom: 0.55rem;
+
+  color: #334155;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.filter-search {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  width: 100%;
+  height: 46px;
+
+  padding: 0 0.9rem;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+
+  background-color: #ffffff;
+}
+
+.filter-search:focus-within {
+  border-color: #93c5fd;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.filter-search-icon {
+  flex: 0 0 auto;
+
+  color: #94a3b8;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.filter-search input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #0f172a;
+
+  font-family: inherit;
+  font-size: 0.82rem;
+}
+
+.filter-search input::placeholder {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   STATUS FILTER
+   ========================================================= */
+
+.status-scroll {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  width: 100%;
+  min-width: 0;
+
+  gap: 0.5rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  white-space: nowrap;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.status-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.status-scroll > .filter-option {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.filter-option {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 58px;
+
+  padding: 0.5rem 0.9rem;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+
+  background-color: #ffffff;
+  color: #64748b;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.filter-option input[type='radio'] {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filter-option:has(input[type='radio']:checked) {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.filter-option-label {
+  display: block;
+
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   CATEGORY FILTER
+   ========================================================= */
+
+.jobs-categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  width: 100%;
+  min-width: 0;
+
+  gap: 0.5rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding-bottom: 0.25rem;
+
+  white-space: nowrap;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.jobs-categories::-webkit-scrollbar {
+  display: none;
+}
+
+.jobs-categories > .category-btn {
+  flex: 0 0 auto;
+
+  white-space: nowrap;
+}
+
+.category-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  padding: 0.5rem 0.8rem;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+
+  background-color: #ffffff;
+  color: #64748b;
+
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.category-btn:hover {
+  border-color: #bfdbfe;
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.category-btn.active {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+/* =========================================================
+   FILTER ACTIONS
+   ========================================================= */
+
+.filter-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.65rem;
+
+  margin-top: 1rem;
+}
+
+.clear-filter-btn {
+  width: 100%;
+  min-height: 42px;
+
+  padding: 0.7rem 1rem;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background-color: #ffffff;
+  color: #64748b;
+
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.clear-filter-btn:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+/* =========================================================
+   PRICE FILTER
+   ========================================================= */
+.budget-inputs {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.price-input {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  padding: 0 0.75rem;
+  box-sizing: border-box;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background-color: #ffffff;
+  color: #0f172a;
+
+  font-family: inherit;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.budget-separator {
+  flex: 0 0 auto;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.budget-filter {
+  margin-block: 0.25rem;
+}

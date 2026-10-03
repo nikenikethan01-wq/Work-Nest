@@ -4,9 +4,24 @@ node_modules/
 # Environment variables
 .env
 .env.*
-!.env.example
 
-# Prettier configuration
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Prettier
 .prettierrc
-.prettierrc.*
-prettier.config.*

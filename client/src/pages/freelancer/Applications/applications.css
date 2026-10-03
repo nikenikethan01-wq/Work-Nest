@@ -1,0 +1,317 @@
+/* =========================================================
+   APPLICATIONS PAGE
+   ========================================================= */
+
+.applications-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 6rem;
+  box-sizing: border-box;
+  background-color: #f8fafc;
+  flex: 1;
+}
+
+.application-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.back-dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  margin-bottom: 1.25rem;
+
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: color 0.15s ease;
+}
+
+.back-dashboard-btn:hover {
+  color: #2563eb;
+}
+
+.back-dashboard-btn svg {
+  font-size: 1rem;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.applications-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  margin-bottom: 1.75rem;
+}
+
+.applications-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.65rem;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.applications-header p {
+  margin: 0.5rem 0 0;
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   APPLICATION LIST
+   ========================================================= */
+
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* =========================================================
+   APPLICATION CARD
+   ========================================================= */
+
+.application-card {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+  border: 1px solid #e8edf3;
+  border-radius: 16px;
+
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.application-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.application-label {
+  color: #0f172a;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.application-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  flex-shrink: 0;
+
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.application-status.applied {
+  color: #2563eb;
+}
+
+.application-status.accepted {
+  color: #16a34a;
+}
+
+.application-status.rejected {
+  color: #dc2626;
+}
+
+/* =========================================================
+   PROPOSAL
+   ========================================================= */
+
+.application-proposal {
+  margin: 0.9rem 0 0;
+
+  color: #475569;
+  font-size: 0.82rem;
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.application-divider {
+  width: 100%;
+  height: 1px;
+  margin: 1rem 0;
+
+  background-color: #eef2f6;
+}
+
+/* =========================================================
+   APPLICATION INFO
+   ========================================================= */
+
+.application-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.application-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.application-info span {
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+.application-info strong {
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.applications-message {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+
+  color: #64748b;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.applications-error {
+  color: #dc2626;
+}
+
+/* =========================
+   EMPTY / ERROR / LOADING
+========================= */
+
+.applications-message {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.applications-error {
+  color: #dc2626;
+}
+
+.applications-page-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.applications-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.8rem;
+  border-radius: 50%;
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.applications-page-empty h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.applications-page-empty p {
+  max-width: 360px;
+  margin: 0.4rem 0 1rem;
+  color: #64748b;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.applications-empty-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 1rem;
+  border-radius: 9px;
+  background-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.applications-empty-btn:hover {
+  background-color: #1d4ed8;
+}
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .applications-page {
+    padding: 2rem 1.5rem 6rem;
+  }
+
+  .applications-header {
+    margin-bottom: 2rem;
+  }
+
+  .applications-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .applications-header p {
+    margin-top: 0.55rem;
+    font-size: 0.9rem;
+  }
+
+  .application-card {
+    padding: 1.1rem 1.25rem;
+  }
+}

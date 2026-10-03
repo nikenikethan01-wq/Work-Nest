@@ -1,0 +1,374 @@
+/* =========================
+   PROJECTS PAGE
+========================= */
+
+.projects-page {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.projects-header {
+  margin-bottom: 1.5rem;
+}
+
+.projects-header .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.projects-header .back-link:hover {
+  color: #2563eb;
+}
+
+.projects-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.projects-header p {
+  margin: 0.4rem 0 0;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+/* =========================
+   PROJECT LIST
+========================= */
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-card {
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+/* =========================
+   PROJECT HEADER
+========================= */
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.project-card-header h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.project-status.active {
+  color: #d97706;
+}
+
+.project-status.submitted {
+  color: #2563eb;
+}
+
+.project-status.completed {
+  color: #16a34a;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* =========================
+   PROJECT META
+========================= */
+
+.project-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  justify-items: center;
+  text-align: center;
+}
+
+.project-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.project-meta > div > span {
+  color: #64748b;
+  font-size: 0.68rem;
+}
+
+.project-meta > div > strong {
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.project-freelancer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.project-freelancer > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.project-freelancer strong {
+  min-width: 0;
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.project-freelancer-chat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.project-freelancer-chat:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   FREELANCER
+========================= */
+
+.project-freelancer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.project-freelancer-link {
+  min-width: 0;
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.project-freelancer-link:hover {
+  color: #2563eb;
+}
+
+.project-freelancer-chat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.project-freelancer-chat:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   PROJECT FOOTER
+========================= */
+
+.project-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+}
+
+.project-view-btn,
+.project-complete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  min-height: 38px;
+  padding: 0 0.9rem;
+  box-sizing: border-box;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-view-btn {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+}
+
+.project-view-btn:hover {
+  background: #f8fafc;
+}
+
+.project-complete-btn {
+  border: 1px solid #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.project-complete-btn:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.project-complete-btn svg {
+  font-size: 0.7rem;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.projects-empty {
+  padding: 2.5rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.projects-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 1rem;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.projects-empty h2 {
+  margin: 0 0 0.4rem;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.projects-empty p {
+  margin: 0 0 1rem;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.projects-empty-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 0.9rem;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.projects-empty-btn:hover {
+  background: #1d4ed8;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.projects-message {
+  margin: 0;
+  padding: 2.5rem 1rem;
+  color: #64748b;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.projects-error {
+  color: #dc2626;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+  .projects-page {
+    padding: 2rem 1rem 5rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-meta {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-items: start;
+    text-align: start;
+  }
+
+  .project-card-footer {
+    flex-direction: row;
+  }
+
+  .project-view-btn,
+  .project-complete-btn {
+    width: auto;
+  }
+}

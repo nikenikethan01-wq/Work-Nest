@@ -1,0 +1,288 @@
+/* =========================
+   PROJECT DETAILS PAGE
+========================= */
+
+.project-details-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.project-details-page > .back-link {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.project-details-page > .back-link:hover {
+  color: #2563eb;
+}
+
+/* =========================
+   PROJECT DETAILS CARD
+========================= */
+
+.project-details-card {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.project-details-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-details-label {
+  color: #2563eb;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.project-details-header h1 {
+  margin: 0.25rem 0 0;
+  color: #0f172a;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+/* =========================
+   PROJECT META
+========================= */
+
+.project-details-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  justify-items: center;
+  text-align: center;
+}
+
+.project-details-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.project-details-meta > div > span {
+  color: #64748b;
+  font-size: 0.68rem;
+}
+
+.project-details-meta > div > strong {
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.project-freelancer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.project-freelancer strong {
+  min-width: 0;
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.project-freelancer-chat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.project-freelancer-chat:hover {
+  color: #2563eb;
+}
+
+.project-freelancer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* =========================
+   JOB DETAILS
+========================= */
+
+/* =========================
+   JOB DETAILS
+========================= */
+
+.project-job-card {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.project-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.project-section-heading > svg {
+  margin-top: 0.2rem;
+  color: #2563eb;
+  font-size: 1rem;
+}
+
+.project-section-heading h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.project-section-heading p {
+  margin: 0.25rem 0 0;
+  color: #64748b;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Job title */
+
+.project-job-title {
+  margin-top: 1.25rem;
+}
+
+.project-job-title span,
+.project-job-description span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #64748b;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.project-job-title h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Job description */
+
+.project-job-description {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.project-job-description p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+/* =========================
+   LOADING / ERROR
+========================= */
+
+.project-details-message {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.project-details-error {
+  color: #dc2626;
+}
+
+/* =========================
+   project-complete-section
+========================= */
+
+.project-complete-section {
+  margin-inline: auto;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.project-complete-section > button {
+  margin-inline: auto;
+}
+
+.project-complete-btn:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.project-complete-btn svg {
+  font-size: 0.7rem;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+  .project-details-page {
+    padding: 2rem;
+  }
+
+  .project-details-card {
+    padding: 1.5rem;
+  }
+
+  .project-details-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .project-details-meta {
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: start;
+    text-align: start !important;
+  }
+
+  .project-job-card {
+    padding: 1.5rem;
+  }
+}
