@@ -14,17 +14,22 @@ import chatRouter from './routes/chatRouter.js'
 import pool from './db/db.js'
 import session from 'express-session'
 
+const PORT = process.env.PORT || 3000
 const onlineUsers = {}
-const PORT = 3000
 const app = express()
-app.use(cors())
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN,
+    credentials: true,
+  }),
+)
 app.use(express.json())
 app.use(sessionMiddleware())
 
 const httpServer = createServer(app)
 export const io = new Server(httpServer, {
   cors: {
-    origin: ['http://localhost:5173'],
+    origin: process.env.CLIENT_ORIGIN,
     credentials: true,
   },
 })
