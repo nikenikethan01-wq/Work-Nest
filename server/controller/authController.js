@@ -118,7 +118,18 @@ export async function registerUser(req, res) {
     // CREATE SESSION
     req.session.userId = userId
 
-    return res.status(201).json({ message: 'Registration sucessfull.' })
+    req.session.save((err) => {
+      if (err) {
+        console.log(`Session save error: ${err.message}`)
+        return res.status(500).json({
+          error: 'Failed to create session.',
+        })
+      }
+
+      return res.status(201).json({
+        message: 'Registration sucessfull.',
+      })
+    })
   } catch (err) {
     // ROLLBACK TRANSACTION
     await client.query('ROLLBACK')
@@ -164,7 +175,17 @@ export async function login(req, res) {
     }
     // CREATE SESSION
     req.session.userId = result.rows[0].id
-    return res.status(200).json({ role: result.rows[0].role })
+
+    req.session.save((err) => {
+      if (err) {
+        console.log(`Session save error: ${err.message}`)
+        return res.status(500).json({
+          error: 'Failed to create session.',
+        })
+      }
+
+      return res.status(200).json({ role: result.rows[0].role })
+    })
   } catch (err) {
     console.log(`Error : ${err.message}`)
     return res
