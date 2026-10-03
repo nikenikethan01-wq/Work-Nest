@@ -24,9 +24,13 @@ export default function Menu({ menuOpen, setMenuOpen, userData }) {
 
   async function handleLogout() {
     try {
-      const res = await fetch('/api/auth/logout', {
-        method: 'POST',
-      })
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/logout`,
+        {
+          method: 'POST',
+          credentials: 'include',
+        },
+      )
 
       if (!res.ok) {
         throw new Error('Failed to logout.')
