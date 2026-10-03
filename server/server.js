@@ -17,6 +17,7 @@ import session from 'express-session'
 const PORT = process.env.PORT || 3000
 const onlineUsers = {}
 const app = express()
+app.set('trust proxy', 1)
 app.use(
   cors({
     origin: process.env.CLIENT_ORIGIN,
