@@ -9,7 +9,6 @@ function requireAuth(req, res, next) {
   }
   next()
 }
-const hello = ''
 async function requireClient(req, res, next) {
   const userId = req.session.userId
   try {
