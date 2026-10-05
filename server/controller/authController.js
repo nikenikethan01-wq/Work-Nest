@@ -115,21 +115,6 @@ export async function registerUser(req, res) {
     }
     // COMMIT TRANSACTION
     await client.query('COMMIT')
-    // CREATE SESSION
-    req.session.userId = userId
-
-    req.session.save((err) => {
-      if (err) {
-        console.log(`Session save error: ${err.message}`)
-        return res.status(500).json({
-          error: 'Failed to create session.',
-        })
-      }
-
-      return res.status(201).json({
-        message: 'Registration sucessfull.',
-      })
-    })
   } catch (err) {
     // ROLLBACK TRANSACTION
     await client.query('ROLLBACK')

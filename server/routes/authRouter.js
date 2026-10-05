@@ -5,11 +5,12 @@ import {
   logout,
   me,
 } from '../controller/authController.js'
+import { registerRateLimit, loginRateLimit } from '../middleware/middleware.js'
 
 const authRouter = express.Router()
 
-authRouter.post('/register', registerUser)
-authRouter.post('/login', login)
+authRouter.post('/register', registerRateLimit, registerUser)
+authRouter.post('/login', loginRateLimit, login)
 authRouter.post('/logout', logout)
 authRouter.get('/me', me)
 

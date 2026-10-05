@@ -1,6 +1,7 @@
 import pool from '../db/db.js'
 import session from 'express-session'
 import pgSession from 'connect-pg-simple'
+import rateLimit from 'express-rate-limit'
 
 function requireAuth(req, res, next) {
   const userId = req.session.userId
@@ -121,6 +122,20 @@ const verifyConversationParticipant = async (req, res, next) => {
   }
 }
 
+const loginRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  skipSuccessfulRequests: true,
+  limit: 5,
+  message: { message: 'Too many login attempts. Please try again later.' },
+})
+
+const registerRateLimit = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  skipSuccessfulRequests: true,
+  limit: 5,
+  message: { message: 'Too many register attempts. Please try again later.' },
+})
+
 export {
   requireAuth,
   requireClient,
@@ -128,4 +143,6 @@ export {
   sessionMiddleware,
   socketAuthorization,
   verifyConversationParticipant,
+  loginRateLimit,
+  registerRateLimit,
 }
