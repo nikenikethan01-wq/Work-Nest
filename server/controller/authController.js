@@ -115,6 +115,9 @@ export async function registerUser(req, res) {
     }
     // COMMIT TRANSACTION
     await client.query('COMMIT')
+    return res.status(201).json({
+      message: 'Registration successful.',
+    })
   } catch (err) {
     // ROLLBACK TRANSACTION
     await client.query('ROLLBACK')
