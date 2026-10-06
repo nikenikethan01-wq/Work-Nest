@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>Live Demo:</b> <a href="https://work-nest-mu-seven.vercel.app/">LIVE</a>
+  <b>Live Demo:</b> <a href="https://work-nest-git-main-jones-projects4.vercel.app">LIVE</a>
 </p>
 
 Work-Nest covers the whole flow: posting a job, finding a job, chatting, applying, hiring, submitting work, and completing the project.
