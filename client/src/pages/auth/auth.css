@@ -357,6 +357,9 @@
    DESKTOP: 60% IMAGE / 40% FORM
    ============================================= */
 @media (min-width: 768px) {
+  .container {
+    max-width: 1500px !important;
+  }
   .auth-visual {
     display: flex;
     flex: 0 0 60%;
@@ -402,5 +405,15 @@
   .auth-panel .auth-card {
     max-width: 440px;
     min-height: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    max-width: 2000px !important;
+  }
+
+  .auth-visual {
+    flex: 0 0 60%;
   }
 }
