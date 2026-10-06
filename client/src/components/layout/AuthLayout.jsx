@@ -1,4 +1,4 @@
-import './auth.css'
+import '../../pages/auth/auth.css'
 import heroImage from '../../assets/auth-hero.svg'
 export default function AuthLayout({ children }) {
   return (
