@@ -65,14 +65,14 @@ export async function getConversationIdBetweenUsers(req, res) {
   try {
     const doesConversationExists = await pool.query(
       `
-            SELECT 
-                id
-            FROM conversations
-            WHERE (client_id = $1 OR client_id = $2)
-            AND (freelancer_id = $1 OR freelancer_id = $2)
-            
-        `,
-      [otherUserId, currentUser],
+    SELECT id
+    FROM conversations
+    WHERE
+      (client_id = $1 AND freelancer_id = $2)
+      OR
+      (client_id = $2 AND freelancer_id = $1)
+  `,
+      [currentUser, otherUserId],
     )
 
     if (doesConversationExists.rowCount === 0) {
