@@ -10,8 +10,10 @@ import { NavLink } from 'react-router-dom'
 import Toast from '../../utils/Toast'
 import useRegister from '../../hooks/useRegister'
 import AuthLayout from '../../components/layout/AuthLayout'
+import React from 'react'
 
 export default function Register() {
+  const [loading, setLoading] = React.useState(false)
   const {
     handleSubmit,
     formData,
@@ -22,7 +24,7 @@ export default function Register() {
     setShowConfirmPassword,
     error,
     setError,
-  } = useRegister()
+  } = useRegister(setLoading)
 
   return (
     <AuthLayout>
@@ -326,8 +328,8 @@ export default function Register() {
             )}
 
             {/* Submit */}
-            <button type="submit" className="btn-primary">
-              Create account
+            <button type="submit" className="btn-primary" disabled={loading}>
+              {loading ? 'Loading' : 'Create account'}
             </button>
           </form>
 

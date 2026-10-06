@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import socket from '../socket/socket'
-export default function useLogin() {
+export default function useLogin(setLoading) {
   const [showPassword, setShowPassword] = React.useState(false)
   const [formData, setFormData] = React.useState({ email: '', password: '' })
   const [error, setError] = React.useState('')
@@ -15,6 +15,7 @@ export default function useLogin() {
     const email = formData.email.trim()
     const password = formData.password
     try {
+      setLoading((prev) => !prev)
       if (!email || typeof email !== 'string' || !password) {
         throw new Error('Field is empty or invalid format.')
       }
@@ -43,6 +44,8 @@ export default function useLogin() {
       }
     } catch (err) {
       setError(err.message)
+    } finally {
+      setLoading((prev) => !prev)
     }
   }
   return {

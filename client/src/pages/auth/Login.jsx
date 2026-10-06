@@ -6,7 +6,9 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 import Toast from '../../utils/Toast'
 import AuthLayout from '../../components/layout/AuthLayout'
+import React from 'react'
 export default function Login() {
+  const [loading, setLoading] = React.userState(false)
   const {
     handleSubmit,
     formData,
@@ -15,7 +17,7 @@ export default function Login() {
     setShowPassword,
     error,
     setError,
-  } = useLogin()
+  } = useLogin(setLoading)
   return (
     <AuthLayout>
       <section className="auth-card">
@@ -84,8 +86,8 @@ export default function Login() {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="btn-primary">
-              Login
+            <button type="submit" className="btn-primary" disabled={loading}>
+              {loading ? 'Logging in' : 'Login'}
             </button>
 
             {/* Forgot Password Link */}

@@ -1,7 +1,7 @@
 import React from 'react'
 import validateRegisterForm from '../utils/validateRegisterForm'
 import { useNavigate } from 'react-router-dom'
-export default function useRegister() {
+export default function useRegister(setLoading) {
   const [showPassword, setShowPassword] = React.useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false)
   const [error, setError] = React.useState('')
@@ -38,6 +38,7 @@ export default function useRegister() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
+      setLoading((prev) => !prev)
       const dataToSend = validateRegisterForm(formData)
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/api/auth/register`,
@@ -60,6 +61,8 @@ export default function useRegister() {
       return
     } catch (err) {
       setError(err.message)
+    } finally {
+      setLoading((prev) => !prev)
     }
   }
 
