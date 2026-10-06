@@ -7,7 +7,7 @@ export default function ConversationList() {
   const [messagesList, setMessagesList] = React.useState([])
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(null)
-  const onlineUsers = React.userContext(OnlineUsersContext)
+  const onlineUsers = React.useContext(OnlineUsersContext)
 
   function handleNewMessage(data) {
     setMessagesList((prev) => {
