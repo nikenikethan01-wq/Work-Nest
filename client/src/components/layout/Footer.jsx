@@ -12,6 +12,7 @@ import React from 'react'
 
 export default function Footer() {
   const { role } = React.useContext(meContext)
+  console.log(role)
   const navItems =
     role === 'client'
       ? [
