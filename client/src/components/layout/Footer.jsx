@@ -11,10 +11,9 @@ import { meContext } from '../authentication/AuthRequired'
 import React from 'react'
 
 export default function Footer() {
-  const { role } = React.useContext(meContext)
-  console.log(role)
+  const { me } = React.useContext(meContext)
   const navItems =
-    role === 'client'
+    me.role === 'client'
       ? [
           {
             label: 'Home',
