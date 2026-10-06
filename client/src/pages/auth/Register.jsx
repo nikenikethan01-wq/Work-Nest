@@ -9,6 +9,7 @@ import {
 import { NavLink } from 'react-router-dom'
 import Toast from '../../utils/Toast'
 import useRegister from '../../hooks/useRegister'
+import AuthLayout from '../../components/layout/AuthLayout'
 
 export default function Register() {
   const {
