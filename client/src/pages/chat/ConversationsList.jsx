@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom'
 import React from 'react'
 import socket from '../../socket/socket'
+import { OnlineUsersContext } from '../../components/layout/UserLayout'
 
 export default function ConversationList() {
   const [messagesList, setMessagesList] = React.useState([])
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(null)
-  const [onlineUsers, setOnlineUsers] = React.useState({})
+  const onlineUsers = React.userContext(OnlineUsersContext)
 
   function handleNewMessage(data) {
     setMessagesList((prev) => {
@@ -34,10 +35,6 @@ export default function ConversationList() {
         },
       ]
     })
-  }
-
-  function handleOnlineUsers(data) {
-    setOnlineUsers(data)
   }
 
   React.useEffect(() => {
@@ -69,11 +66,9 @@ export default function ConversationList() {
     getMessageList()
 
     socket.on('new-message', handleNewMessage)
-    socket.on('online-users', handleOnlineUsers)
 
     return () => {
       socket.off('new-message', handleNewMessage)
-      socket.off('online-users', handleOnlineUsers)
     }
   }, [])
 

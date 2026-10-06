@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import socket from '../../socket/socket.js'
 import { meContext } from '../../components/authentication/AuthRequired.jsx'
+import { OnlineUsersContext } from '../../components/layout/UserLayout.jsx'
 
 export default function Conversation({ isMobile }) {
   const [messages, setMessages] = React.useState([])
@@ -13,7 +14,7 @@ export default function Conversation({ isMobile }) {
   const [loading, setLoading] = React.useState(true)
   const [sending, setSending] = React.useState(false)
   const [error, setError] = React.useState(null)
-  const [onlineUsers, setOnlineUsers] = React.useState({})
+  const onlineUsers = React.useContext(OnlineUsersContext)
 
   const { me } = React.useContext(meContext)
   const inputRef = React.useRef(null)
@@ -118,17 +119,12 @@ export default function Conversation({ isMobile }) {
     setMessages((prev) => [...prev, data])
   }
 
-  function handleOnlineUsers(data) {
-    setOnlineUsers(data)
-  }
-
   React.useEffect(() => {
     socket.on('input-error', handleInputError)
     socket.on('authentication-error', handleAuthenticationError)
     socket.on('message-error', handleMessageError)
     socket.on('success', handleSuccess)
     socket.on('new-message', handleNewMessage)
-    socket.on('online-users', handleOnlineUsers)
 
     return () => {
       socket.off('input-error', handleInputError)
@@ -136,7 +132,6 @@ export default function Conversation({ isMobile }) {
       socket.off('message-error', handleMessageError)
       socket.off('success', handleSuccess)
       socket.off('new-message', handleNewMessage)
-      socket.off('online-users', handleOnlineUsers)
     }
   }, [])
 
