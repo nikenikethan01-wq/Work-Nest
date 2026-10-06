@@ -1,7 +1,32 @@
-/* Card Container */
+/* =============================================
+   SPLIT LAYOUT (image + form)
+   ============================================= */
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* Form side */
+.auth-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* Image side: hidden on mobile and tablet */
+.auth-visual {
+  display: none;
+}
+
+/* =============================================
+   CARD CONTAINER
+   ============================================= */
 .auth-card {
   width: 100%;
-  /* max-width: 480px; */
   min-height: 100%;
   margin: 0 auto;
   padding: 2rem 1.5rem;
@@ -12,7 +37,9 @@
     sans-serif;
 }
 
-/* Brand Header */
+/* =============================================
+   BRAND HEADER
+   ============================================= */
 .auth-brand {
   display: flex;
   align-items: center;
@@ -37,7 +64,9 @@
   color: #1b6cff;
 }
 
-/* Heading & Subtitle */
+/* =============================================
+   HEADING & SUBTITLE
+   ============================================= */
 .auth-header {
   margin-block: 1.5rem;
   text-align: left;
@@ -57,7 +86,9 @@
   margin: 0;
 }
 
-/* Form Styles */
+/* =============================================
+   FORM
+   ============================================= */
 .auth-form {
   display: flex;
   flex-direction: column;
@@ -70,7 +101,7 @@
   flex-direction: column;
 }
 
-/* Updated Label Rule: Stacks text above nested input */
+/* Label stacks text above the nested input */
 .form-label {
   display: flex;
   flex-direction: column;
@@ -112,6 +143,35 @@
   box-shadow: 0 0 0 3px rgba(27, 108, 255, 0.12);
 }
 
+/* Textarea */
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-group textarea:focus {
+  border-color: #1b6cff;
+  box-shadow: 0 0 0 3px rgba(27, 108, 255, 0.12);
+}
+
+/* Show / hide password button */
 .toggle-password-btn {
   position: absolute;
   right: 0.75rem;
@@ -127,7 +187,9 @@
   opacity: 1;
 }
 
-/* Buttons & Links */
+/* =============================================
+   BUTTONS & LINKS
+   ============================================= */
 .btn-primary {
   width: 100%;
   padding: 0.85rem;
@@ -159,7 +221,9 @@
   text-decoration: underline;
 }
 
-/* Divider */
+/* =============================================
+   DIVIDER
+   ============================================= */
 .auth-divider {
   position: relative;
   text-align: center;
@@ -184,7 +248,9 @@
   color: #94a3b8;
 }
 
-/* Footer Link */
+/* =============================================
+   FOOTER LINK
+   ============================================= */
 .auth-footer {
   text-align: center;
   font-size: 0.875rem;
@@ -202,7 +268,10 @@
 .auth-footer a:hover {
   text-decoration: underline;
 }
-/* ============================================= */
+
+/* =============================================
+   REGISTER PAGE: TOP BAR
+   ============================================= */
 .auth-topbar {
   position: relative;
   width: 100%;
@@ -211,7 +280,6 @@
   justify-content: center;
 }
 
-/* Back Link */
 .auth-topbar .back-link {
   position: absolute;
   left: 0;
@@ -228,6 +296,9 @@
   color: #1b6cff;
 }
 
+/* =============================================
+   REGISTER PAGE: ROLE SELECTOR
+   ============================================= */
 .role-selector {
   display: flex;
   gap: 0.75rem;
@@ -244,23 +315,19 @@
 .role-button {
   flex: 1;
   padding: 0.8rem 1rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-
   background-color: #ffffff;
   color: #334155;
-
   font-size: 0.95rem;
   font-weight: 600;
-
   cursor: pointer;
 }
 
+/* Hide the real radio button (must stay below .form-group input) */
 .role-button input {
   display: none;
 }
@@ -271,7 +338,9 @@
   background-color: rgba(27, 108, 255, 0.05);
 }
 
-/* Registration Section Heading */
+/* =============================================
+   REGISTER PAGE: SECTION HEADING
+   ============================================= */
 .auth-section-title {
   margin-top: 0.25rem;
   margin-bottom: -0.25rem;
@@ -284,35 +353,54 @@
   color: #0f172a;
 }
 
-/* Textarea */
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
+/* =============================================
+   DESKTOP: 60% IMAGE / 40% FORM
+   ============================================= */
+@media (min-width: 768px) {
+  .auth-visual {
+    display: flex;
+    flex: 0 0 60%;
+    align-items: flex-end;
 
-  font-family: inherit;
-  font-size: 0.95rem;
-  line-height: 1.5;
+    /* stays in view while a long form (Register) scrolls */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    align-self: flex-start;
 
-  color: #0f172a;
-  background-color: #ffffff;
+    background-color: #1b6cff; /* shows if the image fails to load */
+    background-size: cover;
+    background-position: center;
+  }
 
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  .auth-visual-overlay {
+    width: 100%;
+    padding: 3rem;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+  }
 
-  outline: none;
-  box-sizing: border-box;
-  resize: vertical;
+  .auth-visual-title {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+    font-weight: 800;
+  }
 
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
+  .auth-visual-text {
+    margin: 0;
+    max-width: 420px;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
 
-.form-group textarea::placeholder {
-  color: #94a3b8;
-}
+  .auth-panel {
+    flex: 0 0 40%;
+    padding: 2rem;
+  }
 
-.form-group textarea:focus {
-  border-color: #1b6cff;
-  box-shadow: 0 0 0 3px rgba(27, 108, 255, 0.12);
+  .auth-panel .auth-card {
+    max-width: 440px;
+    min-height: auto;
+  }
 }
