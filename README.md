@@ -10,7 +10,18 @@
 
 Work-Nest covers the whole flow: posting a job, finding a job, chatting, applying, hiring, submitting work, and completing the project.
 
+<table align="center">
+  <tr>
+    <td width="20%"><img src="https://github.com/user-attachments/assets/05d12e6f-3cda-49d2-9d58-620f692d6507" alt="Login" width="100%" /></td>
+    <td width="20%"><img src="https://github.com/user-attachments/assets/cd444941-b4cd-4cd7-bb03-069a0195f5a8" alt="Register" width="100%" /></td>
+    <td width="20%"><img src="https://github.com/user-attachments/assets/f73f4b75-160b-4eda-838c-6050ac7be9bc" alt="Dashboard" width="100%" /></td>
+    <td width="20%"><img src="https://github.com/user-attachments/assets/adb5bc94-6f82-4849-82b8-2c5acb6a6530" alt="Chat" width="100%" /></td>
+    <td width="20%"><img src="https://github.com/user-attachments/assets/d73dba1b-8d55-4cac-b9e2-72658258e394" alt="Conversation" width="100%" /></td>
+  </tr>
+</table>
+
 ---
+
 
 ## 📑 Table of Contents
 
@@ -211,11 +222,3 @@ client/
 - Cleaning up Socket.IO listeners in `useEffect` so messages do not show up twice
 
 ---
-
-## 👨‍💻 Author
-
-**YOUR NAME**
-
-- GitHub: [YOUR_GITHUB_LINK](YOUR_GITHUB_LINK)
-- LinkedIn: [YOUR_LINKEDIN_LINK](YOUR_LINKEDIN_LINK)
-- Email: YOUR_EMAIL
