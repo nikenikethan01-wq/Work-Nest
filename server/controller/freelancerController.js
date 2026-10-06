@@ -3,6 +3,7 @@ import pool from '../db/db.js'
 async function getAllJobs(req, res) {
   const { search, category, minBudget, maxBudget, page = 1 } = req.query
 
+  const freelancerId = req.session.userId
   const conditions = []
   const values = []
   const pageNumber = Number(page)
@@ -13,48 +14,56 @@ async function getAllJobs(req, res) {
     })
   }
 
-  // SET LIMIT AND OFFSET FOR PAGINATION
   const limit = 10
   const offset = (pageNumber - 1) * limit
 
-  // FREELANCERS CAN BROWSE LIVE JOBS
+  // Only live jobs
   values.push('live')
-  conditions.push(`status = $${values.length}`)
+  conditions.push(`j.status = $${values.length}`)
+
+  // Exclude jobs this freelancer has already applied to
+  values.push(freelancerId)
+  conditions.push(`
+    NOT EXISTS (
+      SELECT 1
+      FROM applications a
+      WHERE a.job_id = j.id
+      AND a.freelancer_id = $${values.length}
+    )
+  `)
 
   if (search) {
     values.push(`%${search}%`)
-
     conditions.push(`
       (
-        title ILIKE $${values.length}
-        OR description ILIKE $${values.length}
+        j.title ILIKE $${values.length}
+        OR j.description ILIKE $${values.length}
       )
     `)
   }
 
   if (category) {
     values.push(category)
-    conditions.push(`category = $${values.length}`)
+    conditions.push(`j.category = $${values.length}`)
   }
 
   if (minBudget) {
     values.push(minBudget)
-    conditions.push(`budget >= $${values.length}`)
+    conditions.push(`j.budget >= $${values.length}`)
   }
 
   if (maxBudget) {
     values.push(maxBudget)
-    conditions.push(`budget <= $${values.length}`)
+    conditions.push(`j.budget <= $${values.length}`)
   }
 
   const whereClause = `WHERE ${conditions.join(' AND ')}`
 
   try {
-    // GET TOTAL JOB COUNT FOR PAGINATION
     const totalJobsResults = await pool.query(
       `
-        SELECT COUNT(id)
-        FROM jobs
+        SELECT COUNT(j.id)
+        FROM jobs j
         ${whereClause}
       `,
       values,
@@ -62,7 +71,6 @@ async function getAllJobs(req, res) {
 
     const totalJobs = Number(totalJobsResults.rows[0].count)
 
-    // GET JOBS BASED ON FILTERS
     const jobsResult = await pool.query(
       `
         SELECT
