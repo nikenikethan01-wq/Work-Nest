@@ -8,7 +8,7 @@ import Toast from '../../utils/Toast'
 import AuthLayout from '../../components/layout/AuthLayout'
 import React from 'react'
 export default function Login() {
-  const [loading, setLoading] = React.userState(false)
+  const [loading, setLoading] = React.useState(false)
   const {
     handleSubmit,
     formData,
