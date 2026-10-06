@@ -148,10 +148,14 @@ export default function FreelancerApplyJob() {
 
   return (
     <main className="apply-job-page">
-      <Link to="/freelancer/jobs" className="back-jobs-link">
+      <button
+        type="button"
+        className="back-jobs-link"
+        onClick={() => navigate(-1)}
+      >
         <FontAwesomeIcon icon={faArrowLeft} />
         Back to Jobs
-      </Link>
+      </button>
 
       {/* =========================
           JOB DETAILS

@@ -202,10 +202,14 @@ export default function ClientJobDetails() {
 
   return (
     <section className="job-details-page">
-      <Link to="/client/jobs" className="job-details-back">
+      <button
+        type="button"
+        className="job-details-back"
+        onClick={() => navigate(-1)}
+      >
         <FontAwesomeIcon icon={faArrowLeft} />
         <span>Back to Jobs</span>
-      </Link>
+      </button>
 
       <section className="job-details-card">
         <div className="job-details-header">

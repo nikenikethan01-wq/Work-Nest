@@ -304,6 +304,28 @@ async function acceptApplication(req, res) {
 
     // UPDATE SELECTED APPLICATION:
     // pending -> accepted
+    // JOB: live -> in_progress
+    // Runs first so concurrent accepts on the same job are serialized
+    const jobUpdate = await client.query(
+      `
+    UPDATE jobs
+    SET status = 'in_progress',
+        updated_on = NOW()
+    WHERE id = $1
+    AND client_id = $2
+    AND status = 'live'
+    RETURNING id
+  `,
+      [jobId, clientId],
+    )
+
+    if (jobUpdate.rowCount === 0) {
+      await client.query('ROLLBACK')
+      return res.status(404).json({
+        error: 'Job not found or already has an accepted freelancer.',
+      })
+    }
+
     const applicationsUpdate = await client.query(
       `
         UPDATE applications A

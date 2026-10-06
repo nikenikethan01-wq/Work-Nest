@@ -15,6 +15,8 @@
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  border: none;
+  background: none;
 }
 
 .job-details-back:hover {

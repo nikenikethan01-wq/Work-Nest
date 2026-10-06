@@ -109,6 +109,7 @@ async function getAllJobs(req, res) {
 async function createApplication(req, res) {
   const { id } = req.params
   const userId = req.session.userId
+
   // CLEAN INCOMING APPLICATION DATA
   const data = req.body
 
@@ -119,7 +120,7 @@ async function createApplication(req, res) {
 
     if (value === undefined || value === null || value === '') {
       return res.status(400).json({
-        Error: 'Invalid data recieved.',
+        Error: 'Invalid data received.',
       })
     }
   }
@@ -129,7 +130,7 @@ async function createApplication(req, res) {
   // CHECK PRICE
   if (!Number.isFinite(proposedPrice) || proposedPrice <= 0) {
     return res.status(400).json({
-      Error: 'Invalid data recieved.',
+      Error: 'Invalid data received.',
     })
   }
 
@@ -202,16 +203,7 @@ async function createApplication(req, res) {
     )
 
     // UPDATE JOB STATUS
-    // JOB : live -> in_progress
-
-    await client.query(
-      `
-        UPDATE jobs
-        SET status = 'in_progress'
-        WHERE id = $1
-      `,
-      [id],
-    )
+    // JOB: live -> in_progress
 
     await client.query('COMMIT')
 
@@ -224,6 +216,12 @@ async function createApplication(req, res) {
     console.log({
       Error: err.message,
     })
+
+    if (err.code === '23505') {
+      return res.status(409).json({
+        error: 'You have already applied to this job.',
+      })
+    }
 
     return res.status(500).json({
       Error: 'Internal server error.',
