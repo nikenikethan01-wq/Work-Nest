@@ -148,7 +148,7 @@ Each user joins a private Socket.IO room. The server checks that the sender is p
 ### 1. Clone the project
 
 ```bash
-git clone YOUR_REPO_URL
+git clone git@github.com:nikenikethan01-wq/Work-Nest.git
 cd YOUR_REPO_FOLDER
 ```
 
